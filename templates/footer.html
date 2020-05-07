@@ -1,0 +1,87 @@
+<div class='foot1'>
+    <hr>
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3">
+                <p>
+                    <strong>{{BLOG_TITLE_FOOTER}}</strong>
+                </p>
+                <p>{{BLOG_FOOTER_DESC}}</p>
+                <p>Powered by
+                    <a href="https://blog.getpelican.com/">Pelican</a> | theme
+                    <a href="{{SITEURL}}">ckpwhite</a>
+                </p>
+            </div>
+            <div class="column is-2">
+
+                {% if SOCIAL or FEED_ALL_ATOM%} {% for name, link in SOCIAL %} {% if name == 'github' %}
+                <p>
+                    <i class="fa fa-github" aria-hidden="true"></i>
+                    <a href="https://github.com/{{GITHUB_USERNAME}}" class='social-ico'> {{GITHUB_USERNAME}}</a>
+                </p>
+                {% endif %} {% if name == 'linkedin' %}
+                <p>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    <a href="{{LINKEDIN}}}}" class='social-ico'> My Linkedin</a>
+                </p>
+
+                {% endif %} 
+                
+                
+                {% if name == 'email' %}
+                <p>
+                        <i class="fa fa-envelope" aria-hidden="true"></i> {{USER_EMAIL}}</p>
+                
+				
+
+                {% endif %}
+                
+                
+                {% if name == 'twitter' %}
+                <p>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <a href="https://twitter.com/{{TWITTER_USERNAME}}" class='social-ico'> @{{TWITTER_USERNAME}}</a>
+                </p>
+
+                {% endif %} {% if name == 'facebook' %}
+                <p>
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <a href="{{FACBOOK_URL}}" class='social-ico'> My Facebook</a>
+                </p>
+
+                {% endif %} {% if name == 'telegram' %}
+                <p>
+                    <i class="fa fa-telegram" aria-hidden="true"></i> <a href="https://t.me/{{TELEGRAM_USERNAME}}">@{{TELEGRAM_USERNAME}}</a>
+                </p>
+
+                {% endif %}
+                
+
+                {% endfor %} {%endif%} {% if FEED_ALL_ATOM %}
+
+                <p>
+                    <i class="fa fa-rss" aria-hidden="true" style="color: rgb(255, 123, 0)"></i>
+                    <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" class="social-ico"> RSS</a>
+                </p>
+                {% endif %}
+
+
+            </div>
+            <div class="column is-7">
+
+                {% if DISPLAY_TAGS_ON_MENU %} {% for t, null in tags %}
+                <span class="post-tag tag">
+                    <a href="{{SITEURL}}/{{ t.url }}">{{t}}</a>
+                </span>
+                {% endfor %} {% endif %} 
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</div>

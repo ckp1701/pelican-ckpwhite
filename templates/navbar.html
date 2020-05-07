@@ -1,0 +1,50 @@
+<!--navbar-->
+<div class='upline'></div>
+<div class="container">
+    <nav class="nav">
+        <div class="nav-left">
+            <a href="{{SITEURL}}" class="nav-item">
+                <img src="https://avatars0.githubusercontent.com/u/14226241?v=3&s=460" alt="blog logo">
+                <span class='blog-title'>
+                    <strong>{{BLOG_TITLE}}</strong>
+                </span>
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <a href="https://github.com/{{GITHUB_USERNAME}}" class="nav-item">
+                <span class="icon">        
+                        <i class="fa fa-github"></i>
+                </span>
+            </a>
+
+        </div>
+
+        <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+        <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+
+        <!-- This "nav-menu" is hidden on mobile -->
+        <!-- Add the modifier "is-active" to display it on mobile -->
+        <div class="nav-right nav-menu">
+            {% for title, link in MENUITEMS %}
+            <a href="{{SITEURL}}" class="nav-item">
+                {{title}}
+            </a>
+            {% endfor %} {%if DISPLAY_PAGES_ON_MENU and PAGES%} {%for p in pages %}
+            <a href="{{SITEURL}}/{{p.url}}" class="nav-item">{{p.title}}</a>
+            {%endfor%} {%endif%}
+
+        </div>
+
+    </nav>
+</div>
+<hr>
+
+
+
+<!--end navbar-->

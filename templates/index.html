@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{%block content %}
+
+
+<div class="column">
+        <div class="content">
+            {% if articles %}{% for article in (articles_page.object_list if articles_page else articles) %}
+            <div class="post"></div>
+            <div class="post-date">{{ article.locale_date}}</div>
+            <div class="post-title"><a href="{{SITEURL}}/{{article.url}}">{{article.title}}</a></div>
+            {% if DISPLAY_SUMMARY and article.summary|length > 0 %}
+            <div class="post-summary">{{article.summary }}</div>
+            {%endif%}
+            {%for t in article.tags%}
+
+            <a href="{{SITEURL}}//{{t.url}}"><span class="post-tag tag">{{t}}</span></a>
+
+
+
+            {%endfor%}{%endfor%}{%endif%}
+            <div class="post">
+            {% if articles_page and articles_paginator.num_pages > 1 %}
+            {% include 'pagination.html' %}
+            {% endif %}
+			</div>
+			</div>
+	</div>
+{% endblock content %}
